@@ -1,0 +1,37 @@
+name: GitHub Actions Deploy
+run-name: ${{ github.actor }} GitHub Actions 自動部署 🚀
+on:
+  push: # 只有當 tag 名稱以 'v' 開頭以及分支為 'prod' 觸發
+    tags:
+      - 'ver*'
+    branches:
+      - 'prod'
+jobs:
+  autoDeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: 初始化專案
+        run: |
+          npm install
+      - name: 打包專案
+        run: |
+          npm run build
+      - name: 部署專案
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: dist
+          if-no-files-found: error
+      - name: 印出目前工作環境的資料夾結構
+        run: |
+          ls ${{ github.workspace }}
+      - name: 推送打包專案至 gh-pages 分支
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          PUBLISH_BRANCH: gh-pages
+          full_commit_message: ${{ github.event.head_commit.message }}
+      - run: echo "自動打包部署結果 ${{ job.status }}"
