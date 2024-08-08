@@ -7,32 +7,33 @@ import ContainWrap from '../components/ContainWrap.vue';
     <ContainWrap
       :title="'1A2B'"
     >
-      <template #info>
+      <template #game>
         <div class="flex justify-center items-center">
           game info
         </div>
       </template>
       <template #code>
         <pre v-highlightjs>
-        <code class="javascript">
-function guessNumber(guess, answer) {
-  if (!/^\d{4}$/.test(guess)) {
-    return '請輸入四位數';
-  }
+          <code class="javascript">
+const game1A2B = (guess: string, answer: string) => {
+  const guessString = guess.toString().split('');
 
   const answerSet = new Set([...answer]);
-  const guessSet = new Set([...guess]);
 
-  const [A, B] = answer.split('').reduce(([a, b], num, index) => {
-    if (num === guess[index]) a++;
-    if (answer.includes(num)) b++;
-    return [a, b];
-  }, [0, 0]);
+  let A = 0, B = 0;
 
-  return `${A}A${B}B`;
-}
-</code>
-</pre>
+  for(const [index, value] of guessString.entries()) {
+    if (guess[index] === answer[index]) {
+      A +=1;
+    } else if (answerSet.has(value)) {
+      B +=1;
+    }
+  }
+
+  return {A, B};
+};
+          </code>
+        </pre>
       </template>
     </ContainWrap>
   </div>
