@@ -13,16 +13,16 @@ defineProps<{
   >
     <div
       class="
-        text-[8rem] font-extrabold leading-none
+        sm:text-[8rem] text-[6rem] font-extrabold leading-none
         rainbowText
       "
     >
       {{ title }}
     </div>
     <div  class="w-full">
-      <slot name="info"/>
+      <slot name="game"/>
     </div>
-    <div class="w-full mx-2">
+    <div class="w-full">
       <div class="w-full overflow-auto">
         <div>
           <slot name="code"/>

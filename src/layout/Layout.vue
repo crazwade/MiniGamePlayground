@@ -31,7 +31,9 @@ onMounted(() => {
         </nav>
       </el-header>
       <el-main>
-        <RouterView />
+        <div class="px-6">
+          <RouterView />
+        </div>
       </el-main>
     </el-container>
   </div>
