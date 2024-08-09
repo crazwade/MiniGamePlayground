@@ -136,8 +136,8 @@ watch(() => gameStatus.value, (val: gameStatusEnum) => {
         </div>
       </template>
       <template #code>
-        <pre v-highlightjs>
-          <code class="javascript">
+        <pre v-highlightjs class="flex justify-center">
+          <code class="javascript w-fit">
 const game1A2B = (guess: string, answer: string) => {
   const guessString = guess.toString().split('');
 
