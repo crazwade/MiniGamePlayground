@@ -72,7 +72,7 @@ watch(() => gameStatus.value, (val: gameStatusEnum) => {
 <template>
   <div>
     <ContainWrap
-      :title="'Vite'"
+      :title="'1A2B'"
     >
       <template #game>
         <div class="flex flex-col justify-center items-center gap-5">
