@@ -13,7 +13,7 @@ defineProps<{
   >
     <div
       class="
-        sm:text-[8rem] text-[6rem] font-extrabold leading-none
+        text-[10vw] font-extrabold leading-none
         rainbowText
       "
     >
