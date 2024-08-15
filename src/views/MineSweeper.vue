@@ -33,6 +33,10 @@ const level = ref<{
   label: options[0].label,
 });
 
+// todo mouse right click
+const putFlag = (e: any) => {
+  e.preventDefault();
+}
 </script>
 
 <template>
@@ -85,6 +89,7 @@ const level = ref<{
               <div v-for="(minesList, index) in mineSweeperStore.getMines" :key="index" class="flex flex-row">
                 <template v-for="(item, index2) in minesList" :key="index2">
                   <Mine
+                    @click.right="putFlag"
                     @click="mineSweeperStore.stepMine(index * mineSweeperStore.width + index2)"
                     :show="item.show"
                     :mine="item.mines"
