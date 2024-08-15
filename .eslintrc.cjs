@@ -28,6 +28,7 @@ module.exports = {
   },
   rules: {
     'vue/multi-word-component-names': 'off',
+    "invalid-first-character-of-tag-name": false,
     semi: ["error", "always"]
   },
 };

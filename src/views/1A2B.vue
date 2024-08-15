@@ -124,7 +124,7 @@ watch(() => gameStatus.value, (val: gameStatusEnum) => {
               <div class="text-[3rem] font-bold text-white" :class="[ gameStatus === gameStatusEnum.playing ? 'blur-md' : '']">
                 {{ gameStatus === gameStatusEnum.playing ? '****' : answer }}
               </div>
-              <div class="text-[1rem] flex flex-col-reverse font-mono max-h-[300px] overflow-y-auto overflow-x-hidden px-5 mt-5">
+              <div class="text-[1rem] flex flex-col-reverse font-mono px-5 mt-5">
                 <TransitionGroup name="list">
                   <div v-for="(item, index) in process" :key="index">
                     第 {{ index + 1 }} 次 => {{ item.result }} / {{ item.question }}
