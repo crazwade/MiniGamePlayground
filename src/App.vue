@@ -5,7 +5,7 @@ import { version } from '../package.json';
 
 <template>
   <Layout />
-  <div class="absolute right-[5px] bottom-[5px] text-xs text-gray-500">
+  <div class="fixed right-[5px] bottom-[5px] text-xs text-gray-500">
     ver {{ version }}
   </div>
 </template>
