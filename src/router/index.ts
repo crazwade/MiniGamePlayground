@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/minesweeper',
       name: '踩地雷',
       component: () => import('../views/MineSweeper.vue')
+    },
+    {
+      path: '/paint',
+      name: '繪畫板',
+      component: () => import('../views/Paint.vue')
     }
   ]
 });
